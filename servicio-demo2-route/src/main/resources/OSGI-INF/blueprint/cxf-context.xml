@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<blueprint
+        xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:cm="http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.1.0"
+        xmlns:camelcxf="http://camel.apache.org/schema/blueprint/cxf"
+        xsi:schemaLocation="
+        http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.1/blueprint.xsd">
+
+    <cm:property-placeholder persistent-id="org.ecuadorjug.demo2.ws" update-strategy="reload">
+        <cm:default-properties>
+            <cm:property name="CXFserver" value="http://localhost:8989/"/>
+            <cm:property name="service" value="demo2"/>
+        </cm:default-properties>
+    </cm:property-placeholder>
+
+    <camelcxf:cxfEndpoint id="servicioDemo2"
+                          address="${CXFserver}${service}"
+                          serviceClass="org.ecuadorjug.demo2.route.service.ServicioDemo2"
+    />
+
+
+
+    <camelContext xmlns="http://camel.apache.org/schema/blueprint">
+
+        <route id="ServicioDemo2">
+            <from uri="cxf:bean:servicioDemo2"/>
+            <recipientList>
+                <simple>direct-vm:${header.operationName}</simple>
+            </recipientList>
+        </route>
+    </camelContext>
+
+</blueprint>
+

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<blueprint
+        xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+        http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+        http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd">
+
+    <bean id="servicioDemo2Impl" class="org.ecuadorjug.demo2.service.impl.ServicioDemo2Impl" init-method="init"/>
+
+
+    <camelContext xmlns="http://camel.apache.org/schema/blueprint">
+        <route id="checkCiudadano">
+            <from uri="direct-vm:checkCiudadano"/>
+            <log message="getCiudadano invocation with id: ${body}"/>
+            <bean method="checkCiudadano" ref="servicioDemo2Impl"/>
+        </route>
+
+    </camelContext>
+
+</blueprint>

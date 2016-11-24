@@ -1,0 +1,29 @@
+<!--
+  ~ /*
+  ~  * Omnia Project version 2.0
+  ~  *
+  ~  * Copyright (c) 2015 FISA Group.
+  ~  *
+  ~  * Todos los derechos reservados.
+  ~  * This software is the confidential and proprietary information FISA GROUP
+  ~  * ("Confidential Information").  You shall not
+  ~  * disclose such Confidential Information and shall use it only in
+  ~  * accordance with the terms of the license agreement you entered into
+  ~  * with FISA Group.
+  ~  */
+  -->
+
+<features name="org.ecuadorjug.demo-${project.version}">
+
+
+    <feature name="demo-osgi" version="${project.version}">
+        <feature>camel</feature>
+        <feature>camel-cxf</feature>
+        <bundle>mvn:org.ecuadorjug/servicio-demo1-service/${project.version}</bundle>
+        <bundle>mvn:org.ecuadorjug/servicio-demo1-route/${project.version}</bundle>
+        <bundle>mvn:org.ecuadorjug/servicio-demo2-service/${project.version}</bundle>
+        <bundle>mvn:org.ecuadorjug/servicio-demo2-route/${project.version}</bundle>
+    </feature>
+
+
+</features>

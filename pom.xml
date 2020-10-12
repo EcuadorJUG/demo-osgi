@@ -21,7 +21,7 @@
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
         <maven-compiler-plugin.version>3.6.0</maven-compiler-plugin.version>
         <camel.version>2.24.0</camel.version>
         <jline.version>2.11</jline.version>
